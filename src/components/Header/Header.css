@@ -1,0 +1,135 @@
+header{
+    width: 100%;
+    height: 90px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-inline: 1.2rem;
+}
+
+.image-site{
+    width: 10rem;
+}
+
+.pesquisa-container{
+    background-color: #28282849;
+    outline: 1px solid #cecece13;
+    padding: .75rem;
+    width: 40%;
+    backdrop-filter: blur(.125rem);
+     -webkit-backdrop-filter: blur(.125rem);
+    display: flex;
+    align-items: center;
+    border-radius: .75rem;
+    
+    & button{
+        background-color: transparent !important;
+        border: none;
+        font-size: 1.1125rem;
+        color: #595656;
+        margin-top: 3px;
+        transition: .3s ease-in-out;
+    }
+
+    & button:hover{
+        cursor: pointer;
+        transition: .3s ease-in-out;
+        color: #FF4C29;
+    }
+    
+    & input{
+        background-color: transparent !important;
+        font-family: "Work Sans", sans-serif !important;
+        border: none;
+        flex: 1;
+        outline: none;
+        font-size: .875rem;
+        color: white;
+    }
+    
+    & input::placeholder{
+        color: #595656;
+    }
+}
+
+.fazer-login{
+    background: linear-gradient(90deg, rgba(88, 101, 242, 1) 0%, rgba(88, 101, 242, 1) 100%);
+    color: white;
+    display: flex;
+    align-items: center;
+    font-weight: 500;
+    height: 50px;
+    gap: 9px;
+    border: none;
+    font-size: 1rem;
+    border-radius: 12px;
+    padding: .5625rem 1rem;
+    cursor: pointer;
+    transition: .3s ease-in-out linear;
+}
+
+
+.fazer-login:hover{
+    transition: .3s ease-in-out linear;
+    background: #5865F2;
+    background: linear-gradient(90deg, rgba(88, 101, 242, 1) 0%, rgba(51, 58, 140, 1) 100%);
+}
+
+.icone-login{
+    font-size: 19px;
+}
+
+
+.profile-information{
+    background-color: rgba(255, 255, 255, 0.048);
+    border-radius: 10px;
+}
+
+.profile{
+    display: flex;
+    align-items: center;
+    padding: 5px 10px;
+    gap: 6px;
+
+    & h1{
+        font-size: 1rem;
+    }
+}
+
+
+.content-profile{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.credits{
+    border-radius: 10px;
+    padding-inline: 10px;
+    height: 50px;
+    background-color: rgba(255, 255, 255, 0.048);
+    display: flex;
+    gap: 5px;
+    align-items: center;
+
+    & svg{
+        color: #FF4C29;
+    }
+}
+
+.credits-info{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    & p {
+        padding: 0;
+        opacity: 50%;
+        margin-bottom: -8px;
+        font-size: 10px;
+    }
+
+    & h1{
+        padding: 0;
+        font-size: 12px;
+    }
+}

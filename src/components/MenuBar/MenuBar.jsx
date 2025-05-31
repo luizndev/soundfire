@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import "./MenuBar.css"
 import { musicHistory } from "../Player/Player";
 // IMPORT DE ICONES
@@ -6,8 +6,10 @@ import Coracao from '../../assets/sf_heath.svg'
 import Adicionar from '../../assets/sf_plus.svg'
 import { LuDownload } from "react-icons/lu";
 import { SiFivem } from "react-icons/si";
+import MakePlaylist from '../MakePlaylist/MakePlaylist';
 
 const MenuBar = ({ onPlayMusic }) => {
+  const [makePlaylist, setMatePlaylist] = useState(false)
   const playlist = []
   return (
     <aside>
@@ -15,7 +17,14 @@ const MenuBar = ({ onPlayMusic }) => {
         <img src={Coracao} alt="" /> 
         Musicas Salvas
       </button>
-      <button className='btn-action make-playlist'>
+      <button 
+          className='btn-action make-playlist' 
+          onClick={() => {
+            setMatePlaylist(!makePlaylist)
+            console.log(makePlaylist)
+          }}
+        >
+
         <img src={Adicionar} alt="" /> 
         Criar Playlist
       </button>
@@ -67,6 +76,9 @@ const MenuBar = ({ onPlayMusic }) => {
         </button>
       </div>
       </div>
+      {makePlaylist ? (
+        <MakePlaylist close={makePlaylist} onClose={() => setMatePlaylist(false)}  />
+      ) : ""}
     </aside>
   )
 }

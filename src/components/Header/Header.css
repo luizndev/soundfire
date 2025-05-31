@@ -133,3 +133,10 @@ header{
         font-size: 12px;
     }
 }
+
+
+.profile-img{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+}

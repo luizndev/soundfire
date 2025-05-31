@@ -27,8 +27,15 @@ aside{
 }
 
 .make-playlist{
+    cursor: pointer;
     background: #ffffff;
     background: linear-gradient(90deg,#FF4C29 0%, #F14440 100%);
+    transition: .1s ease-in-out;
+}
+
+.make-playlist:hover{
+    transition: .2s ease-in-out;
+    filter: brightness(160%);
 }
 
 

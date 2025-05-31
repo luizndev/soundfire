@@ -6,21 +6,36 @@ import ProfileImage from "../../assets/Avatar.png"
 import { BiSolidCoinStack } from "react-icons/bi";
 import "./Header.css";
 
-const Header = ({ onSearch }) => {
+const getCookie = (name) => {
+    const match = document.cookie.match(new RegExp('(^| )' + name + '=([^;]+)'));
+    return match ? decodeURIComponent(match[2]) : null;
+}
 
+const Header = ({ onSearch }) => {
   const mensagens = [
     'Trap Brazil...',
     'Funk do Rio de Janeiro...',
     'Lofy Japonese...',
     'Montagem/Ritimada...',
   ];
-
+  const [user, setUser] = useState(null);
   const [placeholder, setPlaceholder] = useState("")
-   const [mensagemIndex, setMensagemIndex] = useState(0)
+  const [mensagemIndex, setMensagemIndex] = useState(0)
   const [charIndex, setCharIndex] = useState(0)
   const [apagando, setApagando] = useState(false)
   const [query, setQuery] = useState('')
   const [login, setLogin] = useState(true)
+
+  useEffect(() => {
+        const nomeStr = getCookie("nome"); // ex: "João da Silva"
+        const email = getCookie("email");
+        const picture = getCookie("picture");
+
+        if (nomeStr && email && picture) {
+            const nome = nomeStr.split(" ");
+            setUser({ nome, email, picture });
+        }
+    }, []);
 
   useEffect(() => {
     const menAtual = mensagens[mensagemIndex]
@@ -78,8 +93,8 @@ const Header = ({ onSearch }) => {
             </div>
             <div className="profile-information">
                 <div className="profile">
-                    <img src={ProfileImage} alt="" />
-                    <h1>Visitante</h1>
+                    <img className="profile-img" src={user ? `${user.picture || ""}` : "Carregando..."} alt="" />
+                    <h1>{user ? `${user.nome[0]} ${user.nome[1] || ""}` : "Carregando..."}</h1>
                 </div>
             </div>
           </div>
